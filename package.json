@@ -9,14 +9,15 @@
   },
   "dependencies": {
     "react": "16.8.6",
-    "react-native": "0.60.4"
+    "react-native": "0.60.4",
+    "ws": "^3.3.1"
   },
   "devDependencies": {
     "@babel/core": "7.5.5",
     "@babel/runtime": "7.5.5",
     "@react-native-community/eslint-config": "0.0.3",
     "babel-jest": "24.8.0",
-    "eslint": "^3.19.0",
+    "eslint": "^4.19.1",
     "jest": "24.8.0",
     "metro-react-native-babel-preset": "0.54.1",
     "react-test-renderer": "16.8.6"
