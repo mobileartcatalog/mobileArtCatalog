@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { View, Button } from 'react-native';
+import { View } from 'react-native';
+import { Button } from 'react-native-elements';
 
 export default class HomeScreen extends Component {
   static navigationOptions = {
@@ -9,10 +10,7 @@ export default class HomeScreen extends Component {
     const { navigate } = this.props.navigation;
     return (
       <View>
-        <Button
-          title="Artwork Form"
-          onPress={() => navigate('ArtworkForm')}
-        />
+        <Button title="Artwork Form" onPress={() => navigate('ArtworkForm')} />
       </View>
     );
   }
