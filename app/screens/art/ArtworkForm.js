@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Button } from 'react-native';
 import { Input } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import styles from '../stylesheets/forms.js';
+import styles from '../../stylesheets/forms.js';
 
 export default class ArtworkForm extends Component {
   static navigationOptions = {

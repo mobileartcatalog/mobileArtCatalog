@@ -1,22 +1,25 @@
-import {
-  createStackNavigator,
-  createBottomTabNavigator,
-  createAppContainer,
-} from 'react-navigation';
+import React, { Component } from 'react';
+import { Provider } from 'react-redux';
+import store from './app/store';
 
-import HomeScreen from './screens/HomeScreen';
-import ArtworkForm from './screens/ArtworkForm';
+import DrawerNavigator from './app/screens/navigation/DrawerNavigator';
+import MainNavigation from './app/screens/navigation/BottomTabNavigator';
+import HamburgerIcon from './app/screens/navigation/HamburgerIcon';
 
-const MainNavigator = createStackNavigator({
-  Home: { screen: HomeScreen },
-  ArtworkForm: { screen: ArtworkForm },
-});
+console.disableYellowBox = true;
 
-const TabNavigator = createBottomTabNavigator({
-  Home: HomeScreen,
-  ArtworkForm: ArtworkForm,
-});
+export default class App extends Component {
+  static navigationOptions = () => {
+    return {
+      headerLeft: <HamburgerIcon />,
+    };
+  };
 
-const App = createAppContainer(MainNavigator);
-
-export default App;
+  render() {
+    return (
+      <Provider store={store}>
+        <MainNavigation />
+      </Provider>
+    );
+  }
+}
