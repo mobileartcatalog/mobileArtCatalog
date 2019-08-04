@@ -1,31 +1,31 @@
 import React, { Component } from 'react';
-import { View, Text, Button } from 'react-native';
-// import LoginScreen from '../screens/LoginScreen';
+import { Dimensions, View, Text, ImageBackground } from 'react-native';
+import { Button } from 'react-native-elements';
 import styles from '../stylesheets/forms';
 
 export default class HomeScreen extends Component {
   static navigationOptions = {
-    title: 'Home',
+    title: '',
   };
   render() {
     const { navigate } = this.props.navigation;
+    const { width, height } = Dimensions.get('window');
     return (
       <View style={styles.container}>
-        <Text style={styles.headlineText}>Mobile Art Catalog</Text>
-        <Text style={styles.bodyText}>Welcome, user</Text>
-
-        {/* <LoginScreen /> */}
-
-        <Button
-          title="Add New Artwork"
-          onPress={() => navigate('ArtworkForm')}
-          style={styles.button}
-        />
-        <Button
-          title="View Artwork"
-          onPress={() => navigate('ArtworkList')}
-          style={styles.button}
-        />
+        <ImageBackground
+          style={styles.backgroundImage}
+          source={{
+            uri:
+              'http://hdwpro.com/wp-content/uploads/2017/03/Art-Background-Image-1024x768.png',
+          }}
+        >
+          <Text style={styles.headlineText}>Mobile Art Catalog</Text>
+          <Button
+            title="Login"
+            onPress={() => navigate('Login')}
+            style={styles.button}
+          />
+        </ImageBackground>
       </View>
     );
   }

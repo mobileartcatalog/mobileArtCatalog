@@ -1,27 +1,31 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { View } from 'react-native';
+import { View, Text, Dimensions } from 'react-native';
+import ScaledImage from 'react-native-scaled-image';
+import { getArtworkDetail } from '../../reducers/artReducer/getArtworkDetail';
+import styles from '../../stylesheets/art';
 
 class ArtworkDetail extends Component {
   componentDidMount() {
-    const id = this.props.match.params.id;
+    const id = this.props.navigation.getParam('id');
+    this.props.getArtworkDetail(id);
   }
 
   render() {
     const { artwork } = this.props;
+    const { width } = Dimensions.get('window');
     if (artwork) {
       return (
         <View>
-          <img className="thumb" src={`/${artwork.imageUrl}`} />
-          <h3>{artwork.artistName}</h3>
-          <p>title: {artwork.title}</p>
-          <p>date: {artwork.date}</p>
-          <p>tombstone: </p>
-          <ArtworkButtons id={artwork.id} artwork={artwork} />
+          <ScaledImage source={{ uri: `${artwork.imageUrl}` }} width={width} />
+          <Text>{artwork.title}</Text>
+          <Text>{artwork.date}</Text>
+          <Text>{artwork.medium}</Text>
+          <Text>{artwork.dimensions}</Text>
         </View>
       );
     }
-    return <h1>no artwork found</h1>;
+    return <Text>no.</Text>;
   }
 }
 
@@ -33,7 +37,7 @@ const mapState = state => {
 };
 
 const mapDispatch = dispatch => ({
-  getArtworkDetail: id => dispatch(getArtworkDetail),
+  getArtworkDetail: id => dispatch(getArtworkDetail(id)),
 });
 
 export default connect(

@@ -2,10 +2,13 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   thumbnail: {
-    // flex: 1,
     height: 150,
     width: 150,
-    // alignSelf: 'stretch',
+  },
+
+  detailImage: {
+    height: 400,
+    width: 400,
   },
 
   title: {

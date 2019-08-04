@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
-import { FlatGrid, SectionGrid } from 'react-native-super-grid';
+import { FlatGrid } from 'react-native-super-grid';
 import { connect } from 'react-redux';
 import { getArt } from '../../reducers/artReducer/getArt';
 import ArtworkListRow from './ArtworkListRow';
-import styles from '../../stylesheets/art';
 
 class ArtworkList extends Component {
   static navigationOptions = {
-    title: 'Artwork',
+    title: '',
   };
 
   componentDidMount() {
@@ -17,6 +16,7 @@ class ArtworkList extends Component {
 
   render() {
     const { art, count } = this.props;
+
     return (
       <View>
         <Text>{count} works found</Text>
@@ -24,7 +24,11 @@ class ArtworkList extends Component {
         <FlatGrid
           itemDimension={150}
           items={art}
-          renderItem={({ item }) => <ArtworkListRow artwork={item} />}
+          renderItem={({ item }) => (
+            <ArtworkListRow
+              artwork={item}
+            />
+          )}
         />
       </View>
 

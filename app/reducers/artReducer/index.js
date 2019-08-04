@@ -2,9 +2,9 @@ import reduceReducers from 'reduce-reducers';
 
 import getArt from './getArt';
 import getArtworkDetail from './getArtworkDetail';
-// import addArtwork from './addArtwork';
+import addArtwork from './addArtwork';
 // import editArtwork from './editArtwork';
-// import deleteArtwork from './deleteArtwork';
+import deleteArtwork from './deleteArtwork';
 
 const initialState = {
   loading: false,
@@ -16,10 +16,10 @@ const initialState = {
 const artReducer = reduceReducers(
   initialState,
   getArt,
-  getArtworkDetail
-  // addArtwork,
+  getArtworkDetail,
+  addArtwork,
   // editArtwork,
-  // deleteArtwork
+  deleteArtwork
 );
 
 export default artReducer;

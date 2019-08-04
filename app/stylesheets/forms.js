@@ -1,6 +1,14 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
+  backgroundImage: {
+    height: 700,
+    width: 400,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  hamburger: { width: 44, height: 44, marginLeft: 20 },
+  
   button: {
     backgroundColor: 'orange',
     color: 'black',
@@ -19,17 +27,15 @@ export default StyleSheet.create({
 
   container: {
     flex: 1,
-    flexDirection: 'column',
-    backgroundColor: 'white',
-    justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 100,
+    justifyContent: 'space-evenly',
   },
 
   headlineText: {
-    color: 'orangered',
+    color: 'black',
     fontSize: 34,
     fontWeight: '500',
+    marginTop: -300,
   },
 
   bodyText: {

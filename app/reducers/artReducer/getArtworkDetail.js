@@ -18,7 +18,7 @@ export const getArtworkDetail = id => {
   return async dispatch => {
     try {
       dispatch(gettingArtworkDetail());
-      const data = artworkData[id];
+      const data = artworkData[id - 1];
       // const { data } = await axios.get(`/api/art/${id}`);
       dispatch(gotArtworkDetail(data));
     } catch (err) {
